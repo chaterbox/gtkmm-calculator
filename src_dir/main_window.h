@@ -13,6 +13,8 @@ class Main_window : public Gtk::Window
 public:
     Main_window();
     int x = 0,y = 0,z = 0;
+    std::string op;
+    char opc;
     const int BUTTON_HEIGHT = 100,BUTTON_WIDTH = 100;
     virtual ~Main_window();
 protected:
@@ -30,6 +32,8 @@ protected:
     void on_minus_button_click();
     void on_multiply_button_click();
     void on_devide_button_click();
+    void on_clear_button_click();
+    void on_equal_button_click();
 
     Gtk::Button one_button;
     Gtk::Button two_button;
@@ -45,6 +49,8 @@ protected:
     Gtk::Button minus_button;
     Gtk::Button multiply_button;
     Gtk::Button devide_button;
+    Gtk::Button clear_button;
+    Gtk::Button equal_buttton;
 
     Gtk::Entry textbox;
     Gtk::Grid grid;

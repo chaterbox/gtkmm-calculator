@@ -47,6 +47,10 @@ Main_window::Main_window()
     multiply_button.set_size_request(BUTTON_WIDTH,BUTTON_HEIGHT);
     devide_button.add_label("/");
     devide_button.set_size_request(BUTTON_WIDTH,BUTTON_HEIGHT);
+    clear_button.add_label("C");
+    clear_button.set_size_request(BUTTON_WIDTH,BUTTON_HEIGHT);
+    equal_buttton.add_label("=");
+    equal_buttton.set_size_request(BUTTON_WIDTH,BUTTON_HEIGHT);
 //click event
     one_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_one_button_click));
     two_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_two_button_click));
@@ -62,6 +66,8 @@ Main_window::Main_window()
     minus_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_minus_button_click));
     multiply_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_multiply_button_click));
     devide_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_devide_button_click));
+    clear_button.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_clear_button_click));
+    equal_buttton.signal_clicked().connect(sigc::mem_fun(*this,&Main_window::on_equal_button_click));
 //attaches the buttons to the grid
     grid.add(one_button);
     grid.add(two_button);
@@ -72,7 +78,9 @@ Main_window::Main_window()
     grid.attach_next_to(seven_button,four_button,Gtk::POS_BOTTOM,1,1);
     grid.attach_next_to(eight_button,seven_button,Gtk::POS_RIGHT,1,1);
     grid.attach_next_to(nine_button,eight_button,Gtk::POS_RIGHT,1,1);
+    grid.attach_next_to(clear_button,seven_button,Gtk::POS_BOTTOM,1,1);
     grid.attach_next_to(zero_button,eight_button,Gtk::POS_BOTTOM,1,1);
+    grid.attach_next_to(equal_buttton,zero_button,Gtk::POS_RIGHT,1,1);
     grid.attach_next_to(plus_button,three_button,Gtk::POS_RIGHT);
     grid.attach_next_to(minus_button,plus_button,Gtk::POS_BOTTOM,1,1);
     grid.attach_next_to(multiply_button,minus_button,Gtk::POS_BOTTOM,1,1);
@@ -100,43 +108,59 @@ void Main_window::on_two_button_click()
 }
 
 void Main_window::on_three_button_click() {
-
+    x += 3;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_four_button_click() {
-
+    x += 4;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_five_button_click() {
-
+    x += 5;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_six_button_click() {
-
+    x += 6;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_seven_button_click() {
-
+    x += 7;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_eight_button_click() {
-
+    x += 8;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_nine_button_click() {
-
+    x += 9;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_zero_button_click() {
-
+    x += 0;
+    textbox.set_text(std::to_string(x));
 }
 
 void Main_window::on_plus_button_click() {
-
+    op = '+';
+    opc = '+';
+    textbox.set_text(op);
+    y = x;
+    x = 0;
 }
 
 void Main_window::on_minus_button_click() {
-
+    op = '-';
+    opc = '-';
+    textbox.set_text(op);
+    y = x;
+    x = 0;
 }
 
 void Main_window::on_multiply_button_click() {
@@ -145,6 +169,20 @@ void Main_window::on_multiply_button_click() {
 
 void Main_window::on_devide_button_click() {
 
+}
+
+void Main_window::on_clear_button_click() {
+    x = 0,y = 0;
+    op = ' ';
+    textbox.set_text("");
+}
+
+void Main_window::on_equal_button_click() {
+    switch(opc)
+    {
+        case '+':
+            textbox.set_text(std::to_string(x + y));
+    }
 }
 
 
