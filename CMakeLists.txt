@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12.1)
 project(gtkmm)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 find_package(PkgConfig)
 pkg_check_modules(GTKMM gtkmm-3.0)
 add_subdirectory(src_dir)

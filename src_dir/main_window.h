@@ -12,8 +12,9 @@ class Main_window : public Gtk::Window
 {
 public:
     Main_window();
-    int x = 0,y = 0,z = 0;
-    std::string op;
+    float z, strx,stry;
+    char* pEnd;
+    std::string op,x,y;
     char opc;
     const int BUTTON_HEIGHT = 100,BUTTON_WIDTH = 100;
     virtual ~Main_window();

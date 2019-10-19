@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "main_window.h"
+#include <stdlib.h>
 
 Main_window::Main_window()
 {
@@ -97,54 +98,54 @@ Main_window::~Main_window()
 }
 void Main_window::on_one_button_click()
 {
-    x += 1;
-    textbox.set_text(std::to_string(x));
+    x += "1";
+    textbox.set_text(x);
 }
 
 void Main_window::on_two_button_click()
 {
-    x += 2;
-    textbox.set_text(std::to_string(x));
+    x += "2";
+    textbox.set_text(x);
 }
 
 void Main_window::on_three_button_click() {
-    x += 3;
-    textbox.set_text(std::to_string(x));
+    x += "3";
+    textbox.set_text(x);
 }
 
 void Main_window::on_four_button_click() {
-    x += 4;
-    textbox.set_text(std::to_string(x));
+    x += "4";
+    textbox.set_text(x);
 }
 
 void Main_window::on_five_button_click() {
-    x += 5;
-    textbox.set_text(std::to_string(x));
+    x += "5";
+    textbox.set_text(x);
 }
 
 void Main_window::on_six_button_click() {
-    x += 6;
-    textbox.set_text(std::to_string(x));
+    x += "6";
+    textbox.set_text(x);
 }
 
 void Main_window::on_seven_button_click() {
-    x += 7;
-    textbox.set_text(std::to_string(x));
+    x += "7";
+    textbox.set_text(x);
 }
 
 void Main_window::on_eight_button_click() {
-    x += 8;
-    textbox.set_text(std::to_string(x));
+    x += "8";
+    textbox.set_text(x);
 }
 
 void Main_window::on_nine_button_click() {
-    x += 9;
-    textbox.set_text(std::to_string(x));
+    x += "9";
+    textbox.set_text(x);
 }
 
 void Main_window::on_zero_button_click() {
-    x += 0;
-    textbox.set_text(std::to_string(x));
+    x += "0";
+    textbox.set_text(x);
 }
 
 void Main_window::on_plus_button_click() {
@@ -152,7 +153,7 @@ void Main_window::on_plus_button_click() {
     opc = '+';
     textbox.set_text(op);
     y = x;
-    x = 0;
+    x = "";
 }
 
 void Main_window::on_minus_button_click() {
@@ -160,19 +161,27 @@ void Main_window::on_minus_button_click() {
     opc = '-';
     textbox.set_text(op);
     y = x;
-    x = 0;
+    x = "";
 }
 
 void Main_window::on_multiply_button_click() {
-
+    op = '*';
+    opc = '*';
+    textbox.set_text(op);
+    y = x;
+    x = "";
 }
 
 void Main_window::on_devide_button_click() {
-
+    op = '/';
+    opc = '/';
+    textbox.set_text(op);
+    y = x;
+    x = "";
 }
 
 void Main_window::on_clear_button_click() {
-    x = 0,y = 0;
+    x = "",y = "";
     op = ' ';
     textbox.set_text("");
 }
@@ -181,7 +190,31 @@ void Main_window::on_equal_button_click() {
     switch(opc)
     {
         case '+':
-            textbox.set_text(std::to_string(x + y));
+            strx = strtof(x.c_str(),NULL);
+            stry = std::strtof(y.c_str(),NULL);
+            z = stry + strx;
+            textbox.set_text(std::to_string(z));
+        break;
+        case '-':
+            strx = strtof(x.c_str(),NULL);
+            stry = std::strtof(y.c_str(),NULL);
+            z =  stry - strx;
+            textbox.set_text(std::to_string(z));
+        break;
+        case '*':
+            strx = strtof(x.c_str(),NULL);
+            stry = std::strtof(y.c_str(),NULL);
+            z =  stry * strx;
+            textbox.set_text(std::to_string(z));
+        break;
+        case '/':
+            strx = strtof(x.c_str(),NULL);
+            stry = std::strtof(y.c_str(),NULL);
+            z =  stry / strx;
+            textbox.set_text(std::to_string(z));
+            break;
+        default:textbox.set_text("ERROR");
+        break;
     }
 }
 
