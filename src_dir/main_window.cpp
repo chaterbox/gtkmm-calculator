@@ -194,24 +194,28 @@ void Main_window::on_equal_button_click() {
             stry = std::strtof(y.c_str(),NULL);
             z = stry + strx;
             textbox.set_text(std::to_string(z));
+            x = std::to_string(z);
         break;
         case '-':
             strx = strtof(x.c_str(),NULL);
             stry = std::strtof(y.c_str(),NULL);
             z =  stry - strx;
             textbox.set_text(std::to_string(z));
+            x = std::to_string(z);
         break;
         case '*':
             strx = strtof(x.c_str(),NULL);
             stry = std::strtof(y.c_str(),NULL);
             z =  stry * strx;
             textbox.set_text(std::to_string(z));
+            x = std::to_string(z);
         break;
         case '/':
             strx = strtof(x.c_str(),NULL);
             stry = std::strtof(y.c_str(),NULL);
             z =  stry / strx;
             textbox.set_text(std::to_string(z));
+            x = std::to_string(z);
             break;
         default:textbox.set_text("ERROR");
         break;
